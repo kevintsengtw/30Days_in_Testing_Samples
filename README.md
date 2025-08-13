@@ -11,6 +11,7 @@
 | 01  | 老派工程師的測試啟蒙 - 為什麼我們需要測試？ | [連結](https://ithelp.ithome.com.tw/articles/10373888) | `day01/` |
 | 02  | xUnit 框架深度解析 - 從生態概觀到實戰專案   | [連結](https://ithelp.ithome.com.tw/articles/10373952) | `day02/` |
 | 03  | xUnit 進階功能與測試資料管理                | [連結](https://ithelp.ithome.com.tw/articles/10374064) | `day03/` |
+| 04  | AwesomeAssertions 基礎應用與實戰技巧        | [連結](https://ithelp.ithome.com.tw/articles/10374188) | `day04/` |
 
 ## 環境需求
 

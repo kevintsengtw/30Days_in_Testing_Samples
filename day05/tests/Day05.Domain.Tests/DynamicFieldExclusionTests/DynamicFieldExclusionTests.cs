@@ -1,0 +1,183 @@
+using Day05.Domain.DomainModels;
+using Day05.Domain.Services.BusinessServices;
+using Day05.Domain.Services.ProcessingServices;
+using Day05.Domain.Services.UserServices;
+using Day05.Tests.Extensions;
+
+namespace Day05.Domain.Tests.DynamicFieldExclusionTests;
+
+public class DynamicFieldExclusionTests
+{
+    private readonly EntityService _entityService;
+    private readonly UserService _userService;
+    private readonly OrderService _orderService;
+    private readonly ComplexService _complexService;
+
+    public DynamicFieldExclusionTests()
+    {
+        this._entityService = new EntityService();
+        this._userService = new UserService();
+        this._orderService = new OrderService();
+        this._complexService = new ComplexService();
+    }
+
+    [Fact]
+    public void EntityComparison_排除時間戳記_應正常運作()
+    {
+        // Arrange
+        var originalEntity = new UserEntity
+        {
+            Id = 1,
+            Name = "John Doe",
+            Email = "john@example.com",
+            CreatedAt = DateTime.Now.AddDays(-1),
+            UpdatedAt = DateTime.Now.AddDays(-1),
+            Version = 1
+        };
+
+        // Act
+        var actual = this._entityService.UpdateUser(1, new UpdateUserRequest
+        {
+            Name = "John Doe",
+            Email = "john@example.com"
+        });
+
+        // 排除自動更新的時間戳記和版本欄位
+        actual.Should().BeEquivalentTo(
+            originalEntity,
+            options => options.Excluding(e => e.UpdatedAt)      // 自動更新的時間
+                              .Excluding(e => e.CreatedAt)      // 也排除創建時間
+                              .Excluding(e => e.Version)        // 樂觀鎖版本號
+                              .Excluding(e => e.LastModifiedBy) // 修改者記錄
+        );
+
+        // 單獨驗證動態欄位
+        actual.UpdatedAt.Should().BeAfter(originalEntity.UpdatedAt);
+        actual.Version.Should().Be(originalEntity.Version + 1);
+    }
+
+    [Fact]
+    public void EntityComparison_使用屬性表達式_應正常運作()
+    {
+        var user1 = this._userService.CreateUser("test@example.com");
+        var user2 = this._userService.GetUser(user1.Id);
+
+        // 使用屬性表達式排除欄位
+        user2.Should().BeEquivalentTo(
+            user1,
+            options => options.Excluding(u => u.CreatedAt)
+                              .Excluding(u => u.UpdatedAt)
+                              .Excluding(u => u.RowVersion)
+        );
+    }
+
+    [Fact]
+    public void ComplexEntity_排除巢狀時間戳記_應正常運作()
+    {
+        // Arrange
+        var order = new Order
+        {
+            Id = 1,
+            CustomerName = "John Doe",
+            CreatedAt = DateTime.Now,
+            Items =
+            [
+                new OrderItem
+                {
+                    Id = 1,
+                    ProductName = "Laptop",
+                    AddedAt = DateTime.Now,
+                    ModifiedAt = DateTime.Now
+                }
+            ],
+            AuditInfo = new AuditInfo
+            {
+                CreatedBy = "system",
+                CreatedAt = DateTime.Now,
+                ModifiedBy = "system",
+                ModifiedAt = DateTime.Now
+            }
+        };
+
+        // Act
+        var actual = this._orderService.GetOrder(1);
+
+        // Assert
+        // 排除所有時間戳記欄位(包含巢狀物件)
+        actual.Should().BeEquivalentTo(
+            order,
+            options => options.Excluding(o => o.CreatedAt)
+                              .Excluding(o => o.UpdatedAt)
+                              .Excluding(o => o.TotalAmount) // 因為實際值可能不同
+                              .Excluding(o => o.Status)      // 因為實際值可能不同
+                              .Excluding(o => o.Items[0].AddedAt)
+                              .Excluding(o => o.Items[0].ModifiedAt)
+                              .Excluding(o => o.Items[0].Price)    // 排除價格差異
+                              .Excluding(o => o.Items[0].Quantity) // 排除數量差異
+                              .Excluding(o => o.AuditInfo!.CreatedAt)
+                              .Excluding(o => o.AuditInfo!.ModifiedAt)
+        );
+    }
+
+    [Fact]
+    public void ComplexEntity_使用萬用字元排除_應正常運作()
+    {
+        var entity = this._complexService.ProcessEntity();
+        var expectedEntity = this.CreateExpectedEntity();
+
+        // 使用萬用字元排除所有時間相關欄位
+        entity.Should().BeEquivalentTo(
+            expectedEntity,
+            options => options.Excluding(ctx => ctx.Path.EndsWith("At"))
+                              .Excluding(ctx => ctx.Path.EndsWith("Time"))
+                              .Excluding(ctx => ctx.Path.Contains("Timestamp"))
+                              .Excluding(ctx => ctx.Path.Contains("GeneratedId")) // 也排除 GUID
+        );
+    }
+
+    [Fact]
+    public void EntityComparison_使用智慧排除_應正常運作()
+    {
+        var user = this._userService.CreateUser("test@example.com");
+        var retrievedUser = this._userService.GetUser(user.Id);
+
+        // 使用智慧排除擴充方法
+        retrievedUser.Should().BeEquivalentTo(
+            user,
+            options => options.ExcludingAutoGeneratedFields()
+                              .ExcludingAuditFields()
+        );
+    }
+
+    [Fact]
+    public void ComplexEntity_組合排除策略_應正常運作()
+    {
+        var orderRequest = new[]
+        {
+            new OrderItem { ProductId = 1, Quantity = 1, Price = 100.0m }
+        };
+        var order = this._orderService.CreateOrder(orderRequest);
+        var processedOrder = this._orderService.ProcessOrder(order.Id);
+
+        processedOrder.Should().BeEquivalentTo(
+            order,
+            options => options.ExcludingAutoGeneratedFields()
+                              .ExcludingAuditFields()
+                              .Excluding(o => o.Status) // 額外排除狀態欄位
+                              .Excluding(o => o.ProcessedAt)
+                              .Excluding(o => o.Items) // 排除 Items 因為處理後的訂單沒有項目
+        );
+    }
+
+    private ComplexObject CreateExpectedEntity()
+    {
+        return new ComplexObject
+        {
+            ImportantProperty1 = "Value1",
+            ImportantProperty2 = "Value2",
+            CriticalData = "CriticalValue",
+            Timestamp = DateTime.Now.AddHours(-1),
+            GeneratedId = Guid.NewGuid()
+        };
+    }
+}

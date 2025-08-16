@@ -1,0 +1,9 @@
+global using System;
+global using System.IO;
+global using System.Threading.Tasks;
+global using Xunit;
+global using NSubstitute;
+global using Microsoft.Extensions.Logging;
+global using Day07.Refactored;
+global using Day07.Refactored.Abstractions;
+global using AwesomeAssertions;

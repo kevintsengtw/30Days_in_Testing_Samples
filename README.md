@@ -13,6 +13,8 @@
 | 03  | xUnit 進階功能與測試資料管理                | [連結](https://ithelp.ithome.com.tw/articles/10374064) | `day03/` |
 | 04  | AwesomeAssertions 基礎應用與實戰技巧        | [連結](https://ithelp.ithome.com.tw/articles/10374188) | `day04/` |
 | 05  | AwesomeAssertions 進階技巧與複雜情境應用    | [連結](https://ithelp.ithome.com.tw/articles/10374425) | `day05/` |
+| 06  | Code Coverage 程式碼涵蓋範圍實戰指南        | [連結](https://ithelp.ithome.com.tw/articles/10374467) | -        |
+| 07  | 依賴替代入門 - 使用 NSubstitute             | [連結](https://ithelp.ithome.com.tw/articles/10374593) | `day07/` |
 
 ## 環境需求
 

@@ -15,6 +15,7 @@
 | 05  | AwesomeAssertions 進階技巧與複雜情境應用    | [連結](https://ithelp.ithome.com.tw/articles/10374425) | `day05/` |
 | 06  | Code Coverage 程式碼涵蓋範圍實戰指南        | [連結](https://ithelp.ithome.com.tw/articles/10374467) | -        |
 | 07  | 依賴替代入門 - 使用 NSubstitute             | [連結](https://ithelp.ithome.com.tw/articles/10374593) | `day07/` |
+| 08  | 測試輸出與記錄 - xUnit ITestOutputHelper 與 ILogger | [連結](https://ithelp.ithome.com.tw/articles/10374711) | `day08/` |
 
 ## 環境需求
 

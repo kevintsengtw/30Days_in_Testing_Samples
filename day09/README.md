@@ -1,13 +1,13 @@
 
 # Day 09：範例專案
 
-> Day 09：測試私有與內部成員 - Private 與 Internal 的測試策略
+> [Day 09：測試私有與內部成員 - Private 與 Internal 的測試策略](https://ithelp.ithome.com.tw/articles/10374866)
 
 ---
 
 ## 專案結構
 
-```text
+```
 day09/
 ├── Day09.Samples.sln
 ├── src/
@@ -33,18 +33,18 @@ day09/
 │           ├── StandardDiscountStrategy.cs
 │           └── TaiwanTaxStrategy.cs
 └── tests/
-		└── Day09.Core.Tests/
-				├── DataProcessorTests.cs
-				├── Day09.Core.Tests.csproj
-				├── GlobalUsings.cs
-				├── Helpers/
-				│   └── ReflectionTestHelper.cs
-				├── PaymentProcessorTests.cs
-				├── PriceCalculatorTests.cs
-				└── StrategyPattern/
-						├── PricingServiceTests.cs
-						├── StandardDiscountStrategyTests.cs
-						└── TaiwanTaxStrategyTests.cs
+	└── Day09.Core.Tests/
+		├── DataProcessorTests.cs
+		├── Day09.Core.Tests.csproj
+		├── GlobalUsings.cs
+		├── Helpers/
+		│   └── ReflectionTestHelper.cs
+		├── PaymentProcessorTests.cs
+		├── PriceCalculatorTests.cs
+		└── StrategyPattern/
+			├── PricingServiceTests.cs
+			├── StandardDiscountStrategyTests.cs
+			└── TaiwanTaxStrategyTests.cs
 ```
 
 ---

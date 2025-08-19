@@ -1,0 +1,12 @@
+global using AutoFixture;
+global using AutoFixture.Xunit2;
+global using Day10.Core.Models;
+global using Day10.Core.Services;
+global using Day10.Core.Dtos;
+global using Day10.Core.Validators;
+global using AwesomeAssertions;
+global using System.ComponentModel.DataAnnotations;
+global using System.Net.Mail;
+global using System.Diagnostics;
+global using System.Text.Json;
+global using Xunit;

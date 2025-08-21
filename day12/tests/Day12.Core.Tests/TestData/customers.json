@@ -1,0 +1,23 @@
+[
+  {
+    "customerId": 1001,
+    "name": "張三",
+    "email": "zhang.san@example.com",
+    "level": "VIP",
+    "creditLimit": 50000
+  },
+  {
+    "customerId": 1002,
+    "name": "李四",
+    "email": "li.si@example.com",
+    "level": "Premium",
+    "creditLimit": 30000
+  },
+  {
+    "customerId": 1003,
+    "name": "王五",
+    "email": "wang.wu@example.com",
+    "level": "Regular",
+    "creditLimit": 10000
+  }
+]

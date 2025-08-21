@@ -1,0 +1,6 @@
+ProductId,Name,Category,Price,IsAvailable
+1,"iPhone 15","3C產品",35900,true
+2,"MacBook Pro","3C產品",89900,true
+3,"AirPods Pro","3C產品",7490,false
+4,"Nike Air Max","運動用品",4200,true
+5,"Adidas Ultraboost","運動用品",5800,true

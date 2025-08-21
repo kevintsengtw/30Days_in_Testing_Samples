@@ -19,6 +19,7 @@
 | 09  | 測試私有與內部成員 - Private 與 Internal 的測試策略 | [連結](https://ithelp.ithome.com.tw/articles/10374866) | `day09/` |
 | 10  | AutoFixture 基礎：自動產生測試資料                  | [連結](https://ithelp.ithome.com.tw/articles/10375018) | `day10/` |
 | 11  | AutoFixture 進階：自訂化測試資料生成策略            | [連結](https://ithelp.ithome.com.tw/articles/10375153) | `day11/` |
+| 12  | 結合 AutoData：xUnit 與 AutoFixture 的整合應用      | [連結](https://ithelp.ithome.com.tw/articles/10375296) | `day12/` |
 
 ## 環境需求
 

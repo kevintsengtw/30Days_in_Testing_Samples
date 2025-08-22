@@ -1,0 +1,11 @@
+global using Xunit;
+global using Day13.Core.Services;
+global using Day13.Core.Repositories;
+global using Day13.Core.Entities;
+global using Day13.Core.Dto;
+global using Day13.Core.Tests.AutoFixtureConfigurations;
+global using Day13.Core.Tests.Attributes;
+global using AutoFixture;
+global using AutoFixture.Xunit2;
+global using NSubstitute;
+global using AwesomeAssertions;

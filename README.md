@@ -21,6 +21,7 @@
 | 11  | AutoFixture 進階：自訂化測試資料生成策略            | [連結](https://ithelp.ithome.com.tw/articles/10375153) | `day11/` |
 | 12  | 結合 AutoData：xUnit 與 AutoFixture 的整合應用      | [連結](https://ithelp.ithome.com.tw/articles/10375296) | `day12/` |
 | 13  | NSubstitute 與 AutoFixture 的整合應用               | [連結](https://ithelp.ithome.com.tw/articles/10375419) | `day13/` |
+| 14  | Bogus 入門：與 AutoFixture 的差異比較                | [連結](https://ithelp.ithome.com.tw/articles/10375501) | `day14/` |
 
 ## 環境需求
 

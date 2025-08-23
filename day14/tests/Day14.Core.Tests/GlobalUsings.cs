@@ -1,0 +1,17 @@
+global using System;
+global using System.Collections.Generic;
+global using System.Collections.Concurrent;
+global using System.Diagnostics;
+global using System.Linq;
+global using Xunit;
+global using Xunit.Abstractions;
+global using AwesomeAssertions;
+global using NSubstitute;
+global using AutoFixture;
+global using AutoFixture.Xunit2;
+global using AutoFixture.AutoNSubstitute;
+global using Bogus;
+global using Day14.Core.Models;
+global using Day14.Core.Generators;
+global using Day14.Core.Extensions;
+global using AutoBogus;

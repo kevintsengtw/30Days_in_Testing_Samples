@@ -1,0 +1,9 @@
+global using System;
+global using System.Collections.Generic;
+global using System.Linq;
+global using System.Text.Json;
+global using Bogus;
+global using AutoBogus;
+global using AutoBogus.Conventions;
+global using AutoFixture;
+global using AutoFixture.AutoNSubstitute;

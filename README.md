@@ -22,6 +22,7 @@
 | 12  | 結合 AutoData：xUnit 與 AutoFixture 的整合應用      | [連結](https://ithelp.ithome.com.tw/articles/10375296) | `day12/` |
 | 13  | NSubstitute 與 AutoFixture 的整合應用               | [連結](https://ithelp.ithome.com.tw/articles/10375419) | `day13/` |
 | 14  | Bogus 入門：與 AutoFixture 的差異比較                | [連結](https://ithelp.ithome.com.tw/articles/10375501) | `day14/` |
+| 15  | AutoFixture 與 Bogus 的整合應用                      | [連結](https://ithelp.ithome.com.tw/articles/10375620) | `day15/` |
 
 ## 環境需求
 

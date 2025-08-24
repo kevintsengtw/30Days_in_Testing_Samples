@@ -29,7 +29,7 @@ public class NameSpecimenBuilder : ISpecimenBuilder
                 _ => new NoSpecimen()
             };
         }
+
         return new NoSpecimen();
     }
 }
-

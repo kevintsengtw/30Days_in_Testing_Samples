@@ -1,6 +1,6 @@
-using System;
 using AutoFixture;
 using AwesomeAssertions;
+using Bogus;
 using Day15.Core.Models;
 using Day15.TestLibrary.TestData;
 using Day15.TestLibrary.TestData.Extensions;
@@ -15,6 +15,9 @@ public class IntegratedTestDataTests
     private readonly IFixture _fixture;
     private readonly HybridTestDataGenerator _generator;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="IntegratedTestDataTests"/> class
+    /// </summary>
     public IntegratedTestDataTests()
     {
         // 方法一：使用擴展方法
@@ -49,8 +52,8 @@ public class IntegratedTestDataTests
 
         // Assert
         order.Should().NotBeNull();
-        order.Customer.Email.Should().Contain("@"); // Customer 使用 Bogus
-        order.Items.Should().NotBeEmpty(); // Items 由 AutoFixture 處理
+        order.Customer.Email.Should().Contain("@");                   // Customer 使用 Bogus
+        order.Items.Should().NotBeEmpty();                            // Items 由 AutoFixture 處理
         order.Items.First().Product.Name.Should().NotBeNullOrEmpty(); // Product.Name 使用 Bogus
     }
 
@@ -71,10 +74,10 @@ public class IntegratedTestDataTests
     public void 客製化_特定類型的_Bogus_產生器()
     {
         // Arrange
-        var customUserFaker = new Bogus.Faker<User>()
-            .RuleFor(u => u.FirstName, "John")
-            .RuleFor(u => u.LastName, "Doe")
-            .RuleFor(u => u.Age, f => f.Random.Int(25, 65));
+        var customUserFaker = new Faker<User>()
+                              .RuleFor(u => u.FirstName, "John")
+                              .RuleFor(u => u.LastName, "Doe")
+                              .RuleFor(u => u.Age, f => f.Random.Int(25, 65));
 
         var customFixture = new Fixture()
             .WithBogusFor(customUserFaker);
@@ -135,7 +138,7 @@ public class IntegratedTestDataTests
         // 這是正常行為，表示循環參考被正確處理
         if (company.Employees.Any())
         {
-            var firstEmployee = company.Employees.First();
+            var firstEmployee = company.Employees[0];
             // OmitOnRecursionBehavior 會在遇到循環參考時將屬性設為 null
             // 這是預期行為，表示成功處理了循環參考問題
         }

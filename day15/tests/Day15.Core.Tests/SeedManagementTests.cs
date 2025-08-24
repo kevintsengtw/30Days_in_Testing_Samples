@@ -1,4 +1,3 @@
-using System;
 using AwesomeAssertions;
 using Day15.Core.Models;
 using Day15.TestLibrary.TestData;
@@ -68,7 +67,7 @@ public class SeedManagementTests
         scenario1.Orders.Count.Should().Be(scenario2.Orders.Count);
 
         // 檢查資料品質
-        for (int i = 0; i < scenario1.Users.Count; i++)
+        for (var i = 0; i < scenario1.Users.Count; i++)
         {
             scenario1.Users[i].Email.Should().Contain("@");
             scenario2.Users[i].Email.Should().Contain("@");
@@ -108,13 +107,13 @@ public class SeedManagementTests
         results1.Orders.Should().HaveCount(results2.Orders.Count);
 
         // 檢查資料品質而非完全相同的值
-        for (int i = 0; i < results1.Users.Count; i++)
+        for (var i = 0; i < results1.Users.Count; i++)
         {
             results1.Users[i].Email.Should().Contain("@");
             results2.Users[i].Email.Should().Contain("@");
         }
 
-        for (int i = 0; i < results1.Orders.Count; i++)
+        for (var i = 0; i < results1.Orders.Count; i++)
         {
             results1.Orders[i].TotalAmount.Should().BePositive();
             results2.Orders[i].TotalAmount.Should().BePositive();
@@ -150,7 +149,14 @@ public class SeedManagementTests
 
     private class TestDataResult
     {
-        public List<User> Users { get; set; } = new();
-        public List<Order> Orders { get; set; } = new();
+        /// <summary>
+        /// 使用者清單
+        /// </summary>
+        public List<User> Users { get; set; } = [];
+        
+        /// <summary>
+        /// 訂單清單
+        /// </summary>
+        public List<Order> Orders { get; set; } = [];
     }
 }

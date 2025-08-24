@@ -152,12 +152,12 @@ public class TestScenario
     /// 公司
     /// </summary>
     public Company Company { get; set; } = new();
-    
+
     /// <summary>
     /// 使用者列表
     /// </summary>
     public List<User> Users { get; set; } = new();
-    
+
     /// <summary>
     /// 訂單列表
     /// </summary>

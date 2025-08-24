@@ -1,4 +1,3 @@
-using System;
 using AwesomeAssertions;
 using Day15.Core.Models;
 using Day15.TestLibrary.TestData.Base;
@@ -19,8 +18,8 @@ public class RealWorldApplicationTests : TestBase
     {
         // Arrange
         var orderService = new OrderService();
-        var customer = Create<User>();
-        var products = CreateMany<Product>(3);
+        var customer = this.Create<User>();
+        var products = this.CreateMany<Product>(3);
 
         // Act
         var order = orderService.CreateOrder(customer, products);
@@ -97,6 +96,12 @@ public class RealWorldApplicationTests : TestBase
 /// </summary>
 public class OrderService
 {
+    /// <summary>
+    /// 建立訂單
+    /// </summary>
+    /// <param name="customer">customer</param>
+    /// <param name="products">products</param>
+    /// <returns></returns>
     public Order CreateOrder(User customer, List<Product> products)
     {
         var order = new Order
@@ -124,18 +129,29 @@ public class OrderService
 /// </summary>
 public class UserService
 {
+    /// <summary>
+    /// 驗證使用者資料
+    /// </summary>
+    /// <param name="user">user</param>
+    /// <returns></returns>
     public ValidationResult ValidateUser(User user)
     {
         var errors = new List<string>();
 
         if (string.IsNullOrWhiteSpace(user.FirstName))
+        {
             errors.Add("FirstName is required");
+        }
 
         if (string.IsNullOrWhiteSpace(user.LastName))
+        {
             errors.Add("LastName is required");
+        }
 
-        if (string.IsNullOrWhiteSpace(user.Email) || !user.Email.Contains("@"))
+        if (string.IsNullOrWhiteSpace(user.Email) || !user.Email.Contains('@'))
+        {
             errors.Add("Valid email is required");
+        }
 
         return new ValidationResult
         {
@@ -150,10 +166,15 @@ public class UserService
 /// </summary>
 public class CompanyAnalysisService
 {
+    /// <summary>
+    /// 分析公司資料
+    /// </summary>
+    /// <param name="company">company</param>
+    /// <param name="orders">orders</param>
+    /// <returns></returns>
     public CompanyAnalysis AnalyzeCompany(Company company, List<Order> orders)
     {
-        var companyOrders = orders.Where(o =>
-            company.Employees.Any(e => e.Id == o.Customer.Id)).ToList();
+        var companyOrders = orders.Where(o => company.Employees.Any(e => e.Id == o.Customer.Id)).ToList();
 
         return new CompanyAnalysis
         {
@@ -179,7 +200,7 @@ public class BulkDataProcessor
         {
             ProcessedUsers = users,
             ProcessedOrders = orders,
-            ProcessingErrors = new List<string>()
+            ProcessingErrors = []
         };
 
         // 模擬處理邏輯
@@ -200,7 +221,14 @@ public class BulkDataProcessor
 /// </summary>
 public class ValidationResult
 {
+    /// <summary>
+    /// 是否有效
+    /// </summary>
     public bool IsValid { get; set; }
+
+    /// <summary>
+    /// 錯誤訊息列表
+    /// </summary>
     public List<string> Errors { get; set; } = new();
 }
 
@@ -209,10 +237,29 @@ public class ValidationResult
 /// </summary>
 public class CompanyAnalysis
 {
+    /// <summary>
+    /// 公司名稱
+    /// </summary>
     public string CompanyName { get; set; } = string.Empty;
+
+    /// <summary>
+    /// 員工總數
+    /// </summary>
     public int TotalEmployees { get; set; }
+
+    /// <summary>
+    /// 訂單總數
+    /// </summary>
     public int TotalOrders { get; set; }
+
+    /// <summary>
+    /// 總收入
+    /// </summary>
     public decimal TotalRevenue { get; set; }
+
+    /// <summary>
+    /// 平均訂單價值
+    /// </summary>
     public decimal AverageOrderValue { get; set; }
 }
 
@@ -221,8 +268,19 @@ public class CompanyAnalysis
 /// </summary>
 public class BulkProcessingResult
 {
+    /// <summary>
+    /// 處理過的使用者列表
+    /// </summary>
     public List<User> ProcessedUsers { get; set; } = new();
+
+    /// <summary>
+    /// 處理過的訂單列表
+    /// </summary>
     public List<Order> ProcessedOrders { get; set; } = new();
+
+    /// <summary>
+    /// 處理錯誤訊息列表
+    /// </summary>
     public List<string> ProcessingErrors { get; set; } = new();
 }
 

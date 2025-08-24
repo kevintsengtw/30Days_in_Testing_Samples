@@ -24,6 +24,7 @@ public class CompanyNameSpecimenBuilder : ISpecimenBuilder
         {
             return this._faker.Company.CompanyName();
         }
+
         return new NoSpecimen();
     }
 }

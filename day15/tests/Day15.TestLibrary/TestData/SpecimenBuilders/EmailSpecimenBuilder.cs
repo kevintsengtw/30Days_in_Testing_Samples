@@ -23,7 +23,7 @@ public class EmailSpecimenBuilder : ISpecimenBuilder
         {
             return this._faker.Internet.Email();
         }
+
         return new NoSpecimen();
     }
 }
-

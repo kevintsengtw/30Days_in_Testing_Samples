@@ -24,7 +24,7 @@ public class WebsiteSpecimenBuilder : ISpecimenBuilder
         {
             return this._faker.Internet.Url();
         }
+
         return new NoSpecimen();
     }
 }
-

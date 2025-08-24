@@ -30,7 +30,7 @@ public class AddressSpecimenBuilder : ISpecimenBuilder
                 _ => new NoSpecimen()
             };
         }
+
         return new NoSpecimen();
     }
 }
-

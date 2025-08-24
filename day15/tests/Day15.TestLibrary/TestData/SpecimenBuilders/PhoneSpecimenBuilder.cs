@@ -23,7 +23,7 @@ public class PhoneSpecimenBuilder : ISpecimenBuilder
         {
             return this._faker.Phone.PhoneNumber();
         }
+
         return new NoSpecimen();
     }
 }
-

@@ -8,12 +8,12 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="AutoFixture.Xunit2" Version="4.18.1" />
-        <PackageReference Include="AwesomeAssertions" Version="9.1.0" />
-        <PackageReference Include="coverlet.collector" Version="6.0.2" />
-        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
-        <PackageReference Include="xunit" Version="2.9.2" />
-        <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2" />
+        <PackageReference Include="AutoFixture.Xunit2" Version="4.18.1"/>
+        <PackageReference Include="AwesomeAssertions" Version="9.1.0"/>
+        <PackageReference Include="coverlet.collector" Version="6.0.2"/>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0"/>
+        <PackageReference Include="xunit" Version="2.9.2"/>
+        <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2"/>
     </ItemGroup>
 
     <ItemGroup>
@@ -21,8 +21,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\src\Day15.Core\Day15.Core.csproj" />
-      <ProjectReference Include="..\Day15.TestLibrary\Day15.TestLibrary.csproj" />
+        <ProjectReference Include="..\..\src\Day15.Core\Day15.Core.csproj"/>
+        <ProjectReference Include="..\Day15.TestLibrary\Day15.TestLibrary.csproj"/>
     </ItemGroup>
 
 </Project>

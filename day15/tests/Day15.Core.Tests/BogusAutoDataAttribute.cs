@@ -1,4 +1,3 @@
-using System;
 using AutoFixture;
 using AutoFixture.Xunit2;
 using Day15.TestLibrary.TestData.Extensions;

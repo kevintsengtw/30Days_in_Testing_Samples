@@ -1,4 +1,3 @@
-using System;
 using System.Diagnostics;
 using AwesomeAssertions;
 using Day15.Core.Models;
@@ -34,8 +33,8 @@ public class PerformanceTests
 
         var cacheStopwatch = Stopwatch.StartNew();
         var cachedUsers = Enumerable.Range(0, dataCount)
-            .Select(_ => factory.GetCached<User>())
-            .ToList();
+                                    .Select(_ => factory.GetCached<User>())
+                                    .ToList();
         cacheStopwatch.Stop();
 
         // Output results
@@ -53,7 +52,7 @@ public class PerformanceTests
         // 調整效能期望值 - User 物件有複雜結構，每個可能需要 20-50ms
         // 100 個 User 物件應該在 10 秒內完成（考慮到循環參考的複雜度）
         stopwatch.ElapsedMilliseconds.Should().BeLessThan(10000); // 10秒內完成
-        
+
         // 平均每個物件不應超過 100ms
         var averageTimePerUser = (double)stopwatch.ElapsedMilliseconds / dataCount;
         averageTimePerUser.Should().BeLessThan(100);
@@ -80,7 +79,7 @@ public class PerformanceTests
 
         // Address 是簡單物件，應該能在 5 秒內完成 1000 個
         stopwatch.ElapsedMilliseconds.Should().BeLessThan(5000);
-        
+
         // 平均每個 Address 不應超過 5ms
         var averageTimePerAddress = (double)stopwatch.ElapsedMilliseconds / dataCount;
         averageTimePerAddress.Should().BeLessThan(5);
@@ -96,8 +95,8 @@ public class PerformanceTests
         // Act & Measure
         var stopwatch = Stopwatch.StartNew();
         var scenarios = Enumerable.Range(0, scenarioCount)
-            .Select(_ => factory.CreateTestScenario())
-            .ToList();
+                                  .Select(_ => factory.CreateTestScenario())
+                                  .ToList();
         stopwatch.Stop();
 
         // Output results

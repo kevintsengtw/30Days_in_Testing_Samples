@@ -1,0 +1,14 @@
+global using Xunit;
+global using FluentValidation;
+global using FluentValidation.Results;
+global using FluentValidation.TestHelper;
+global using AwesomeAssertions;
+global using Microsoft.Extensions.Time.Testing;
+global using NSubstitute;
+global using System;
+global using System.Collections.Generic;
+global using System.Linq;
+global using System.Threading.Tasks;
+global using Day18.Core.Models;
+global using Day18.Core.Validators;
+global using Day18.Core.Services;

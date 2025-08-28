@@ -26,6 +26,7 @@
 | 16  | 測試日期與時間：Microsoft.Bcl.TimeProvider 取代 DateTime                        | [連結](https://ithelp.ithome.com.tw/articles/10375821) | `day16/` |
 | 17  | 檔案與 IO 測試：使用 System.IO.Abstractions 模擬檔案系統 - 實現可測試的檔案操作 | [連結](https://ithelp.ithome.com.tw/articles/10375981) | `day17/` |
 | 18  | 驗證測試：FluentValidation Test Extensions                                      | [連結](https://ithelp.ithome.com.tw/articles/10376147) | `day18/` |
+| 19  | 整合測試入門：基礎架構與應用場景                                                | [連結](https://ithelp.ithome.com.tw/articles/10376335) | `day19/` |
 
 ## 環境需求
 

@@ -27,6 +27,7 @@
 | 17  | 檔案與 IO 測試：使用 System.IO.Abstractions 模擬檔案系統 - 實現可測試的檔案操作 | [連結](https://ithelp.ithome.com.tw/articles/10375981) | `day17/` |
 | 18  | 驗證測試：FluentValidation Test Extensions                                      | [連結](https://ithelp.ithome.com.tw/articles/10376147) | `day18/` |
 | 19  | 整合測試入門：基礎架構與應用場景                                                | [連結](https://ithelp.ithome.com.tw/articles/10376335) | `day19/` |
+| 20  | Testcontainers 初探：使用 Docker 架設測試環境                                    | [連結](https://ithelp.ithome.com.tw/articles/10376401) | `day20/` |
 
 ## 環境需求
 

@@ -27,19 +27,29 @@
 | 17  | 檔案與 IO 測試：使用 System.IO.Abstractions 模擬檔案系統 - 實現可測試的檔案操作 | [連結](https://ithelp.ithome.com.tw/articles/10375981) | `day17/` |
 | 18  | 驗證測試：FluentValidation Test Extensions                                      | [連結](https://ithelp.ithome.com.tw/articles/10376147) | `day18/` |
 | 19  | 整合測試入門：基礎架構與應用場景                                                | [連結](https://ithelp.ithome.com.tw/articles/10376335) | `day19/` |
-| 20  | Testcontainers 初探：使用 Docker 架設測試環境                                    | [連結](https://ithelp.ithome.com.tw/articles/10376401) | `day20/` |
+| 20  | Testcontainers 初探：使用 Docker 架設測試環境                                   | [連結](https://ithelp.ithome.com.tw/articles/10376401) | `day20/` |
+| 21  | Testcontainers 整合測試：MSSQL + EF Core 以及 Dapper 基礎應用                   | [連結](https://ithelp.ithome.com.tw/articles/10376524) | `day21/` |
 
 ## 環境需求
 
 - .NET 9.0 SDK
 - 支援 C# 的 IDE
+- Docker（Day20、Day21 需要）
 
 ## 執行方式
 
 進入對應的 day 資料夾，執行：
 
 ```bash
-dotnet clean    # 清除
-dotnet build    # 建置
-dotnet test     # 執行測試
+dotnet clean
+dotnet build
+dotnet test
 ```
+
+---
+
+## Day21 補充說明
+
+Day21 範例專案示範如何用 Testcontainers 建立 MSSQL 測試環境，並用 EF Core 與 Dapper 做整合測試。測試專案會自動啟動 SQL Server Docker 容器，初始化資料表與預存程序，然後針對 EF Core 與 Dapper 的 CRUD 及進階查詢做驗證。詳細結構與說明請看 `day21/README.md`。
+
+---

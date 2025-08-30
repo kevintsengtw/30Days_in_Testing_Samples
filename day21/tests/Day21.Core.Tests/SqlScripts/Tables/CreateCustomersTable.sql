@@ -1,0 +1,12 @@
+IF
+NOT EXISTS (SELECT * FROM sysobjects WHERE name='Customers' AND xtype='U')
+BEGIN
+CREATE TABLE Customers
+(
+    Id        INT IDENTITY(1,1) PRIMARY KEY,
+    Name      NVARCHAR(100) NOT NULL,
+    Email     NVARCHAR(255) UNIQUE NOT NULL,
+    IsActive  BIT       NOT NULL DEFAULT 1,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE()
+);
+END

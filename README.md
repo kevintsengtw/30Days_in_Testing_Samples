@@ -29,12 +29,13 @@
 | 19  | 整合測試入門：基礎架構與應用場景                                                | [連結](https://ithelp.ithome.com.tw/articles/10376335) | `day19/` |
 | 20  | Testcontainers 初探：使用 Docker 架設測試環境                                   | [連結](https://ithelp.ithome.com.tw/articles/10376401) | `day20/` |
 | 21  | Testcontainers 整合測試：MSSQL + EF Core 以及 Dapper 基礎應用                   | [連結](https://ithelp.ithome.com.tw/articles/10376524) | `day21/` |
+| 22  | Testcontainers 整合測試：MongoDB 及 Redis 基礎到進階                            | [連結](https://ithelp.ithome.com.tw/articles/10376524) | `day22/` |
 
 ## 環境需求
 
 - .NET 9.0 SDK
 - 支援 C# 的 IDE
-- Docker（Day20、Day21 需要）
+- Docker（Day20、Day21、Day22 需要）
 
 ## 執行方式
 
@@ -45,11 +46,3 @@ dotnet clean
 dotnet build
 dotnet test
 ```
-
----
-
-## Day21 補充說明
-
-Day21 範例專案示範如何用 Testcontainers 建立 MSSQL 測試環境，並用 EF Core 與 Dapper 做整合測試。測試專案會自動啟動 SQL Server Docker 容器，初始化資料表與預存程序，然後針對 EF Core 與 Dapper 的 CRUD 及進階查詢做驗證。詳細結構與說明請看 `day21/README.md`。
-
----

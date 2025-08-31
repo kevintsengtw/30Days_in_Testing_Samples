@@ -1,0 +1,11 @@
+global using Xunit;
+global using AwesomeAssertions;
+global using Testcontainers.MongoDb;
+global using Testcontainers.Redis;
+global using DotNet.Testcontainers.Configurations;
+global using DotNet.Testcontainers.Builders;
+global using MongoDB.Driver;
+global using StackExchange.Redis;
+global using Day22.Core.Models;
+global using Day22.Core.Services;
+global using Day22.Core.Infrastructure;

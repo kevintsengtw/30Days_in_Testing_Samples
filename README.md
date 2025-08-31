@@ -29,7 +29,7 @@
 | 19  | 整合測試入門：基礎架構與應用場景                                                | [連結](https://ithelp.ithome.com.tw/articles/10376335) | `day19/` |
 | 20  | Testcontainers 初探：使用 Docker 架設測試環境                                   | [連結](https://ithelp.ithome.com.tw/articles/10376401) | `day20/` |
 | 21  | Testcontainers 整合測試：MSSQL + EF Core 以及 Dapper 基礎應用                   | [連結](https://ithelp.ithome.com.tw/articles/10376524) | `day21/` |
-| 22  | Testcontainers 整合測試：MongoDB 及 Redis 基礎到進階                            | [連結](https://ithelp.ithome.com.tw/articles/10376524) | `day22/` |
+| 22  | Testcontainers 整合測試：MongoDB 及 Redis 基礎到進階                            | [連結](https://ithelp.ithome.com.tw/articles/10376740) | `day22/` |
 
 ## 環境需求
 

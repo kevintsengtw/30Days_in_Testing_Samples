@@ -1,6 +1,6 @@
 # Day 22 – 範例專案
 
-> [Day 22 - Testcontainers 整合測試：MongoDB 及 Redis 基礎到進階](https://ithelp.ithome.com.tw/articles/10376524)
+> [Day 22 - Testcontainers 整合測試：MongoDB 及 Redis 基礎到進階](https://ithelp.ithome.com.tw/articles/10376740)
 
 ---
 

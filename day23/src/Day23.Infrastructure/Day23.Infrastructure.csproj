@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="Dapper" Version="2.1.28"/>
+        <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.0"/>
+        <PackageReference Include="Npgsql" Version="9.0.3"/>
+        <PackageReference Include="StackExchange.Redis" Version="2.8.16"/>
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Day23.Domain\Day23.Domain.csproj"/>
+        <ProjectReference Include="..\Day23.Application\Day23.Application.csproj"/>
+    </ItemGroup>
+</Project>

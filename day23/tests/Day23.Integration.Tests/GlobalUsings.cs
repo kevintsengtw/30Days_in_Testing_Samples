@@ -1,0 +1,17 @@
+global using System;
+global using System.Net.Http.Json;
+global using System.Text.Json;
+global using System.Threading.Tasks;
+global using Xunit;
+global using AwesomeAssertions;
+global using AwesomeAssertions.Web;
+global using Day23.WebApi;
+global using Day23.Application.Dtos;
+global using Day23.Domain;
+global using Flurl.Http;
+global using Microsoft.AspNetCore.Hosting;
+global using Microsoft.AspNetCore.Mvc.Testing;
+global using Microsoft.Extensions.DependencyInjection;
+global using Respawn;
+global using Testcontainers.PostgreSql;
+global using Testcontainers.Redis;

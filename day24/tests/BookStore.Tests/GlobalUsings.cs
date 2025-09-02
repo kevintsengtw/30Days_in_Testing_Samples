@@ -1,0 +1,17 @@
+global using System;
+global using System.Linq;
+global using System.Collections.Generic;
+global using System.Threading;
+global using System.Threading.Tasks;
+global using Microsoft.Extensions.Configuration;
+global using Microsoft.Extensions.DependencyInjection;
+global using Xunit;
+global using AwesomeAssertions;
+global using Microsoft.EntityFrameworkCore;
+global using Aspire.Hosting;
+global using Aspire.Hosting.Testing;
+global using Aspire.Hosting.ApplicationModel;
+global using BookStore.Core.Models;
+global using BookStore.Core.Data;
+global using BookStore.Core.Repositories;
+global using BookStore.Core.Services;

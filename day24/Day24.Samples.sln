@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C12EC26A-0AEF-48A4-A52D-06271A540154}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{A29D1E22-EDE9-461C-AD5E-70BE4E9FC12C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookStore.Core", "src\BookStore.Core\BookStore.Core.csproj", "{01393AC9-9232-4613-A78F-9E2DB21CB85D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookStore.AppHost", "src\BookStore.AppHost\BookStore.AppHost.csproj", "{68CBA9CC-2277-47D4-A7C0-A1D0BFAAA1FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookStore.Tests", "tests\BookStore.Tests\BookStore.Tests.csproj", "{350AEC6F-FBDC-400C-9FD8-C7359ADCE42B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{01393AC9-9232-4613-A78F-9E2DB21CB85D} = {C12EC26A-0AEF-48A4-A52D-06271A540154}
+		{68CBA9CC-2277-47D4-A7C0-A1D0BFAAA1FF} = {C12EC26A-0AEF-48A4-A52D-06271A540154}
+		{350AEC6F-FBDC-400C-9FD8-C7359ADCE42B} = {A29D1E22-EDE9-461C-AD5E-70BE4E9FC12C}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{01393AC9-9232-4613-A78F-9E2DB21CB85D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01393AC9-9232-4613-A78F-9E2DB21CB85D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01393AC9-9232-4613-A78F-9E2DB21CB85D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01393AC9-9232-4613-A78F-9E2DB21CB85D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68CBA9CC-2277-47D4-A7C0-A1D0BFAAA1FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68CBA9CC-2277-47D4-A7C0-A1D0BFAAA1FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68CBA9CC-2277-47D4-A7C0-A1D0BFAAA1FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68CBA9CC-2277-47D4-A7C0-A1D0BFAAA1FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{350AEC6F-FBDC-400C-9FD8-C7359ADCE42B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{350AEC6F-FBDC-400C-9FD8-C7359ADCE42B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{350AEC6F-FBDC-400C-9FD8-C7359ADCE42B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{350AEC6F-FBDC-400C-9FD8-C7359ADCE42B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

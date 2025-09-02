@@ -31,19 +31,21 @@
 | 21  | Testcontainers 整合測試：MSSQL + EF Core 以及 Dapper 基礎應用                   | [連結](https://ithelp.ithome.com.tw/articles/10376524) | `day21/` |
 | 22  | Testcontainers 整合測試：MongoDB 及 Redis 基礎到進階                            | [連結](https://ithelp.ithome.com.tw/articles/10376740) | `day22/` |
 | 23  | 整合測試實戰：WebApi 服務的整合測試                                             | [連結](https://ithelp.ithome.com.tw/articles/10376873) | `day23/` |
+| 24  | .NET Aspire Testing 入門基礎介紹                                                  | [連結](https://ithelp.ithome.com.tw/articles/10377071) | `day24/` |
 
 
-## 環境需求
+
+## 執行環境
 
 - .NET 9.0 SDK
-- C# IDE（建議 Visual Studio 2022 或 VS Code 或 Rider）
-- Docker（Day20、Day21、Day22、Day23 需要）
+- C# IDE（建議 Visual Studio 2022、VS Code 或 Rider）
+- Docker（Day20、Day21、Day22、Day23、Day24 需要）
 
-## 執行方式
+## 如何執行
 
-進入對應的 day 資料夾，執行：
+進到對應的 day 資料夾，執行：
 
-```bash
+```powershell
 dotnet clean
 dotnet build
 dotnet test

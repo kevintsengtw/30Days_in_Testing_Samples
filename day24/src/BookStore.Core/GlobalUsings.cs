@@ -1,0 +1,9 @@
+global using System;
+global using System.Collections.Generic;
+global using System.Linq;
+global using System.Threading.Tasks;
+global using Microsoft.EntityFrameworkCore;
+global using BookStore.Core.Models;
+global using BookStore.Core.Data;
+global using BookStore.Core.Repositories;
+global using BookStore.Core.Services;

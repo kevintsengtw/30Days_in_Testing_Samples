@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <Sdk Name="Aspire.AppHost.Sdk" Version="9.0.0"/>
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <IsPackable>false</IsPackable>
+        <IsAspireHost>true</IsAspireHost>
+        <UserSecretsId>aspire-day25-apphost</UserSecretsId>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Aspire.Hosting.AppHost" Version="9.4.2"/>
+        <PackageReference Include="Aspire.Hosting.PostgreSQL" Version="9.4.2"/>
+        <PackageReference Include="Aspire.Hosting.Redis" Version="9.4.2"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Day25.Api\Day25.Api.csproj"/>
+    </ItemGroup>
+
+</Project>

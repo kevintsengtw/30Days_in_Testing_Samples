@@ -33,6 +33,8 @@
 | 23  | 整合測試實戰：WebApi 服務的整合測試                                             | [連結](https://ithelp.ithome.com.tw/articles/10376873) | `day23/` |
 | 24  | .NET Aspire Testing 入門基礎介紹                                                | [連結](https://ithelp.ithome.com.tw/articles/10377071) | `day24/` |
 | 25  | .NET Aspire 整合測試實戰：從 Testcontainers 到 .NET Aspire Testing              | [連結](https://ithelp.ithome.com.tw/articles/10377197) | `day25/` |
+| 26  | xUnit 升級指南：從 2.9.x 到 3.x 的轉換                                       | [連結](https://ithelp.ithome.com.tw/articles/10377477) | `day26/` |
+
 
 ## 執行環境
 
@@ -49,3 +51,10 @@ dotnet clean
 dotnet build
 dotnet test
 ```
+
+## 補充說明
+
+- 每個 day 資料夾都包含該主題的範例程式與測試程式，結構以實用為主，沒有多餘裝飾。
+- 測試專案多採用 xUnit，部分範例會用到 Testcontainers 或 Aspire 來啟動資料庫或服務容器，方便做整合測試。
+
+如需細節請參考各 day 資料夾內的 README.md。

@@ -1,0 +1,12 @@
+{
+  "parallelAlgorithm": "conservative",
+  "maxParallelThreads": 4,
+  "diagnosticMessages": true,
+  "methodDisplayOptions": "all",
+  "preEnumerateTheories": false,
+  "shadowCopyFolder": ".",
+  "stopOnFirstFailure": false,
+  "longRunningTestTimeoutInSeconds": 60,
+  "culture": "invariant",
+  "uiCulture": "invariant"
+}

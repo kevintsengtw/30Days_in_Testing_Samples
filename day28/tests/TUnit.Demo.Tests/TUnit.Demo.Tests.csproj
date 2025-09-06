@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <OutputType>Exe</OutputType>
+        <IsPackable>false</IsPackable>
+        <IsTestProject>true</IsTestProject>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="TUnit" Version="0.57.24"/>
+        <PackageReference Include="Microsoft.Testing.Extensions.CodeCoverage" Version="17.14.2" />
+        <PackageReference Include="Microsoft.Testing.Extensions.TrxReport" Version="1.8.4" />
+        <PackageReference Include="Microsoft.Extensions.TimeProvider.Testing" Version="9.8.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\src\TUnit.Demo.Core\TUnit.Demo.Core.csproj"/>
+    </ItemGroup>
+
+</Project>

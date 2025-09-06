@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{3C517449-8631-436A-80B5-79901854BBD9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{82A55083-4A8D-40E5-B6CF-EBA70055D9C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TUnit.Demo.Core", "src\TUnit.Demo.Core\TUnit.Demo.Core.csproj", "{A54122AB-BC83-4238-8373-FF176204CA15}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TUnit.Demo.Tests", "tests\TUnit.Demo.Tests\TUnit.Demo.Tests.csproj", "{24C42180-6740-4CB6-9459-8AF56C12A9CC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A54122AB-BC83-4238-8373-FF176204CA15} = {3C517449-8631-436A-80B5-79901854BBD9}
+		{24C42180-6740-4CB6-9459-8AF56C12A9CC} = {82A55083-4A8D-40E5-B6CF-EBA70055D9C1}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A54122AB-BC83-4238-8373-FF176204CA15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A54122AB-BC83-4238-8373-FF176204CA15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A54122AB-BC83-4238-8373-FF176204CA15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A54122AB-BC83-4238-8373-FF176204CA15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24C42180-6740-4CB6-9459-8AF56C12A9CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24C42180-6740-4CB6-9459-8AF56C12A9CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24C42180-6740-4CB6-9459-8AF56C12A9CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24C42180-6740-4CB6-9459-8AF56C12A9CC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

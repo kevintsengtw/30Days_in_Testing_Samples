@@ -33,8 +33,9 @@
 | 23  | 整合測試實戰：WebApi 服務的整合測試                                             | [連結](https://ithelp.ithome.com.tw/articles/10376873) | `day23/` |
 | 24  | .NET Aspire Testing 入門基礎介紹                                                | [連結](https://ithelp.ithome.com.tw/articles/10377071) | `day24/` |
 | 25  | .NET Aspire 整合測試實戰：從 Testcontainers 到 .NET Aspire Testing              | [連結](https://ithelp.ithome.com.tw/articles/10377197) | `day25/` |
-| 26  | xUnit 升級指南：從 2.9.x 到 3.x 的轉換                                       | [連結](https://ithelp.ithome.com.tw/articles/10377477) | `day26/` |
-
+| 26  | xUnit 升級指南：從 2.9.x 到 3.x 的轉換                                          | [連結](https://ithelp.ithome.com.tw/articles/10377477) | `day26/` |
+| 27  | GitHub Copilot 測試實戰：AI 輔助測試開發指南                                    | [連結](https://ithelp.ithome.com.tw/articles/10377577) | 準備中   |
+| 28  | TUnit 入門 - 下世代 .NET 測試框架探索                                           | [連結](https://ithelp.ithome.com.tw/articles/10377828) | `day28/` |
 
 ## 執行環境
 

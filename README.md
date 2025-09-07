@@ -37,12 +37,13 @@
 | 27  | GitHub Copilot 測試實戰：AI 輔助測試開發指南                                    | [連結](https://ithelp.ithome.com.tw/articles/10377577) | 準備中   |
 | 28  | TUnit 入門 - 下世代 .NET 測試框架探索                                           | [連結](https://ithelp.ithome.com.tw/articles/10377828) | `day28/` |
 | 29  | TUnit 進階應用：資料驅動測試與依賴注入深度實戰                                  | [連結](https://ithelp.ithome.com.tw/articles/10377970) | `day29/` |
+| 30  | TUnit 進階應用 - 執行控制與測試品質和 ASP.NET Core 整合測試實戰                 | [連結](https://ithelp.ithome.com.tw/articles/10378176) | `day30/` |
 
 ## 執行環境
 
 - .NET 9.0 SDK
 - C# IDE（建議 Visual Studio 2022、VS Code 或 Rider）
-- Docker（Day20、Day21、Day22、Day23、Day24、Day25 需要）
+- Docker（Day20、Day21、Day22、Day23、Day24、Day25、Day30 需要）
 
 ## 如何執行
 

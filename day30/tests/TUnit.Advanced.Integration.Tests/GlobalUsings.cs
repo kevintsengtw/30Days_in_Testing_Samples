@@ -1,0 +1,22 @@
+global using System;
+global using System.Collections.Generic;
+global using System.Linq;
+global using System.Threading.Tasks;
+global using TUnit.Core;
+global using TUnit.Assertions;
+global using TUnit.Assertions.Extensions;
+global using Microsoft.Extensions.Logging;
+global using Microsoft.AspNetCore.Mvc.Testing;
+global using Microsoft.Extensions.DependencyInjection;
+global using Microsoft.AspNetCore.Hosting;
+global using System.Diagnostics;
+global using TUnit.Advanced.Core.Models;
+global using TUnit.Advanced.Core.Services;
+// Testcontainers for complex infrastructure orchestration
+global using Testcontainers.Kafka;
+global using Testcontainers.PostgreSql;
+global using Testcontainers.Redis;
+global using DotNet.Testcontainers.Builders;
+global using DotNet.Testcontainers.Containers;
+global using DotNet.Testcontainers.Networks;
+global using DotNet.Testcontainers.Configurations;

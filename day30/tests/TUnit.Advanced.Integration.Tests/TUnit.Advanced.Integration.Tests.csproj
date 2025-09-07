@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <IsPackable>false</IsPackable>
+        <IsTestProject>true</IsTestProject>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="TUnit" Version="0.57.24"/>
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="9.0.8"/>
+        <!-- Testcontainers for complex infrastructure orchestration -->
+        <PackageReference Include="Testcontainers" Version="3.10.0"/>
+        <PackageReference Include="Testcontainers.PostgreSql" Version="3.10.0"/>
+        <PackageReference Include="Testcontainers.Redis" Version="3.10.0"/>
+        <PackageReference Include="Testcontainers.Kafka" Version="3.10.0"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\src\TUnit.Advanced.Core\TUnit.Advanced.Core.csproj"/>
+        <ProjectReference Include="..\..\src\TUnit.Advanced.WebApi\TUnit.Advanced.WebApi.csproj"/>
+    </ItemGroup>
+
+</Project>

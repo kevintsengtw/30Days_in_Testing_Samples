@@ -1,0 +1,23 @@
+[
+  {
+    "Scenario": "一般會員無折扣碼",
+    "Amount": 1000,
+    "Level": 0,
+    "Code": "",
+    "Expected": 0
+  },
+  {
+    "Scenario": "VIP會員使用VIP折扣碼",
+    "Amount": 1000,
+    "Level": 1,
+    "Code": "VIP50",
+    "Expected": 50
+  },
+  {
+    "Scenario": "白金會員使用SAVE20折扣碼",
+    "Amount": 1000,
+    "Level": 2,
+    "Code": "SAVE20",
+    "Expected": 250
+  }
+]

@@ -36,6 +36,7 @@
 | 26  | xUnit 升級指南：從 2.9.x 到 3.x 的轉換                                          | [連結](https://ithelp.ithome.com.tw/articles/10377477) | `day26/` |
 | 27  | GitHub Copilot 測試實戰：AI 輔助測試開發指南                                    | [連結](https://ithelp.ithome.com.tw/articles/10377577) | 準備中   |
 | 28  | TUnit 入門 - 下世代 .NET 測試框架探索                                           | [連結](https://ithelp.ithome.com.tw/articles/10377828) | `day28/` |
+| 29  | TUnit 進階應用：資料驅動測試與依賴注入深度實戰                                  | [連結](https://ithelp.ithome.com.tw/articles/10377970) | `day29/` |
 
 ## 執行環境
 

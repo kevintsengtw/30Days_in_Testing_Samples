@@ -100,7 +100,7 @@ public class FileManagerServiceTests
     {
         // Arrange
         var mockFileSystem = new MockFileSystem();
-        var nonexistentFile = @"C:\data\missing.txt";
+        const string nonexistentFile = @"C:\data\missing.txt";
 
         var service = new FileManagerService(mockFileSystem);
 
@@ -262,5 +262,35 @@ public class FileManagerServiceTests
         // Assert
         result.Should().Be(expectedPath);
         mockFileSystem.File.Exists(expectedPath).Should().BeTrue();
+    }
+
+    [Fact]
+    public void CopyFileToDirectory_各種檔案名稱_應正確處理()
+    {
+        // Arrange
+        var testCases = new[]
+        {
+            "simple.txt",
+            "file with spaces.txt",
+            "file-with-hyphens.txt",
+            "file_with_underscores.txt"
+        };
+
+        var mockFileSystem = new MockFileSystem();
+        var service = new FileManagerService(mockFileSystem);
+
+        foreach (var fileName in testCases)
+        {
+            // Arrange
+            var sourceFile = $@"C:\source\{fileName}";
+            mockFileSystem.AddFile(sourceFile, new MockFileData("test content"));
+
+            // Act
+            var result = service.CopyFileToDirectory(sourceFile, @"C:\target");
+
+            // Assert
+            result.Should().Be($@"C:\target\{fileName}");
+            mockFileSystem.File.Exists(result).Should().BeTrue();
+        }
     }
 }

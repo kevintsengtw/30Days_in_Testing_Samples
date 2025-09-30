@@ -6,7 +6,7 @@
 
 ## 專案結構
 
-```
+```text
 day17/
 ├── Day17.Samples.sln
 ├── src/
@@ -34,6 +34,7 @@ day17/
 ## 專案內容說明
 
 ### src/Day17.Core
+
 - **ConfigManagerService.cs**：整合多種檔案與設定管理，模擬實際應用場景的設定檔管理服務。
 - **ConfigurationService.cs**：負責設定檔案的讀取與寫入，支援預設值與例外處理。
 - **FileManagerService.cs**：檔案管理服務，提供檔案複製、刪除、移動等常用操作。
@@ -43,6 +44,7 @@ day17/
 - **Day17.Core.csproj**：主專案組態檔。
 
 ### tests/Day17.Core.Tests
+
 - **ConfigManagerServiceTests.cs**：ConfigManagerService 的單元測試，驗證設定目錄初始化、設定檔 CRUD 等情境。
 - **ConfigurationServiceTests.cs**：ConfigurationService 的單元測試，驗證設定檔案的讀寫、預設值、例外處理。
 - **FileManagerServiceTests.cs**：FileManagerService 的單元測試，驗證檔案複製、刪除、移動等操作。

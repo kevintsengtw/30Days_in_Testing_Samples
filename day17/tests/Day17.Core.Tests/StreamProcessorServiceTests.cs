@@ -23,7 +23,7 @@ public class StreamProcessorServiceTests
 
         // Assert
         mockFileSystem.File.Exists(outputPath).Should().BeTrue();
-        var outputContent = mockFileSystem.File.ReadAllText(outputPath);
+        var outputContent = await mockFileSystem.File.ReadAllTextAsync(outputPath);
         var lines = outputContent.Split(Environment.NewLine, StringSplitOptions.RemoveEmptyEntries);
 
         lines.Should().HaveCount(3);
@@ -88,7 +88,7 @@ public class StreamProcessorServiceTests
         await service.ProcessTextFileAsync(inputPath, outputPath, line => line.ToUpper());
 
         // Assert
-        var result = mockFileSystem.File.ReadAllText(outputPath).Trim();
+        var result = (await mockFileSystem.File.ReadAllTextAsync(outputPath)).Trim();
         result.Should().Be(expected);
     }
 
@@ -350,7 +350,27 @@ public class StreamProcessorServiceTests
 
         // Assert
         mockFileSystem.File.Exists(outputPath).Should().BeTrue();
-        var outputContent = mockFileSystem.File.ReadAllText(outputPath);
+        var outputContent = await mockFileSystem.File.ReadAllTextAsync(outputPath);
         outputContent.Should().BeEmpty();
+    }
+
+    [Fact]
+    public async Task ProcessLargeFile_使用串流_記憶體效率測試()
+    {
+        // Arrange
+        var mockFileSystem = new MockFileSystem();
+
+        // 建立一個適中大小的測試檔案，而不是真正的大檔案
+        var testContent = string.Join("\n", Enumerable.Range(1, 1000).Select(i => $"Line {i}"));
+        mockFileSystem.AddFile("test.txt", new MockFileData(testContent));
+
+        var processor = new StreamProcessorService(mockFileSystem);
+
+        // Act
+        var result = await processor.GetFileStatisticsAsync("test.txt");
+
+        // Assert
+        result.LineCount.Should().Be(1000);
+        result.WordCount.Should().Be(2000); // "Line 1", "Line 2", etc.
     }
 }

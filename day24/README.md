@@ -6,7 +6,7 @@
 
 ## 專案結構
 
-```
+```text
 day24/
 ├── .gitignore
 ├── Day24.Samples.sln
@@ -60,10 +60,12 @@ day24/
 ## 專案內容說明
 
 ### src/BookStore.AppHost/
+
 - `BookStore.AppHost.csproj`：主機專案設定檔。
 - `Program.cs`：Aspire 分散式應用程式入口，註冊 SQL Server 容器與資料庫。
 
 ### src/BookStore.Core/
+
 - `BookStore.Core.csproj`：核心程式庫設定。
 - `Data/BookStoreDbContext.cs`：EF Core 資料庫上下文，定義 Books 資料表。
 - `GlobalUsings.cs`：全域 using 設定。
@@ -75,6 +77,7 @@ day24/
 - `Services/IBookService.cs`：業務邏輯介面。
 
 ### tests/BookStore.Tests/
+
 - `BookStore.Tests.csproj`：測試專案設定。
 - `GlobalUsings.cs`：測試全域 using 設定。
 - `Helpers/DatabaseTestHelper.cs`：資料庫測試輔助工具。
@@ -107,4 +110,4 @@ day24/
 
 ---
 
-此範例專案展示如何使用 .NET Aspire 進行分散式應用程式的測試，包含 SQL Server 容器、EF Core、業務邏輯、資料存取層，以及多種測試隔離與交易處理技巧。測試專案涵蓋業務邏輯、資料庫遷移、錯誤處理、交易、隔離、並發等主
+此範例專案展示如何使用 .NET Aspire 進行分散式應用程式的測試，包含 SQL Server 容器、EF Core、業務邏輯、資料存取層，以及多種測試隔離與交易處理技巧。測試專案涵蓋業務邏輯、資料庫遷移、錯誤處理、交易、隔離、並發等主題，提供完整的分散式應用測試最佳實踐。

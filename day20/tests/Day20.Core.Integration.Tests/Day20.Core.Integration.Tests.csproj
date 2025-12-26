@@ -20,13 +20,13 @@
         </PackageReference>
 
         <!-- Testcontainers 套件 -->
-        <PackageReference Include="Testcontainers" Version="3.10.0" />
-        <PackageReference Include="Testcontainers.PostgreSql" Version="3.10.0" />
-        <PackageReference Include="Testcontainers.MsSql" Version="3.10.0" />
-        <PackageReference Include="Testcontainers.Redis" Version="3.10.0" />
+        <PackageReference Include="Testcontainers" Version="4.9.0" />
+        <PackageReference Include="Testcontainers.PostgreSql" Version="4.9.0" />
+        <PackageReference Include="Testcontainers.MsSql" Version="4.9.0" />
+        <PackageReference Include="Testcontainers.Redis" Version="4.9.0" />
 
         <!-- WireMock 套件 -->
-        <PackageReference Include="WireMock.Net.Testcontainers" Version="1.6.4" />
+        <PackageReference Include="WireMock.Net.Testcontainers" Version="1.21.0" />
 
         <!-- Entity Framework -->
         <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="9.0.11" />

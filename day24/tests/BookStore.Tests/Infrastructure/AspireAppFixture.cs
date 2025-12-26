@@ -8,6 +8,8 @@ namespace BookStore.Tests.Infrastructure;
 public class AspireAppFixture : IAsyncLifetime
 {
     private DistributedApplication? _app;
+    private bool _databaseInitialized = false;
+    private readonly object _initLock = new object();
 
     public async Task InitializeAsync()
     {
@@ -17,13 +19,24 @@ public class AspireAppFixture : IAsyncLifetime
 
         _app = await appHost.BuildAsync();
         await _app.StartAsync();
+
+        // 初始化資料庫（只執行一次）
+        await InitializeDatabaseAsync();
     }
 
     /// <summary>
-    /// 取得資料庫內容
+    /// 初始化資料庫結構（只執行一次）
     /// </summary>
-    public async Task<BookStoreDbContext> GetDbContextAsync()
+    private async Task InitializeDatabaseAsync()
     {
+        lock (_initLock)
+        {
+            if (_databaseInitialized)
+                return;
+
+            _databaseInitialized = true;
+        }
+
         if (_app == null)
         {
             throw new InvalidOperationException("應用程式尚未初始化");
@@ -42,11 +55,29 @@ public class AspireAppFixture : IAsyncLifetime
                       .UseSqlServer(connectionString, options => options.EnableRetryOnFailure())
                       .Options;
 
-        var context = new BookStoreDbContext(options);
+        using var context = new BookStoreDbContext(options);
 
-        // 確保資料庫存在
+        // 確保資料庫存在（只在初始化時執行一次）
         await context.Database.EnsureCreatedAsync();
+    }
 
+    /// <summary>
+    /// 取得資料庫內容
+    /// </summary>
+    public async Task<BookStoreDbContext> GetDbContextAsync()
+    {
+        if (_app == null)
+        {
+            throw new InvalidOperationException("應用程式尚未初始化");
+        }
+
+        var connectionString = await _app.GetConnectionStringAsync("bookstore-db");
+
+        var options = new DbContextOptionsBuilder<BookStoreDbContext>()
+                      .UseSqlServer(connectionString, options => options.EnableRetryOnFailure())
+                      .Options;
+
+        var context = new BookStoreDbContext(options);
         return context;
     }
 
@@ -79,16 +110,17 @@ public class AspireAppFixture : IAsyncLifetime
     }
 
     /// <summary>
-    /// 清理資料庫內容
+    /// 清理資料庫內容（移除所有書籍）
     /// </summary>
     public async Task CleanDatabaseAsync()
     {
         using var context = await GetDbContextAsync();
 
-        // 清理所有書籍資料
-        var books = await context.Books.ToListAsync();
-        context.Books.RemoveRange(books);
-        await context.SaveChangesAsync();
+        // 使用 SQL 直接刪除以提高效率
+        await context.Database.ExecuteSqlRawAsync("DELETE FROM Books");
+        
+        // 重置 IDENTITY
+        await context.Database.ExecuteSqlRawAsync("DBCC CHECKIDENT ('Books', RESEED, 0)");
     }
 
     public async Task DisposeAsync()

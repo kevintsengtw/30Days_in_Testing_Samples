@@ -52,6 +52,8 @@ public class TransactionTests
     public async Task ConcurrentBookCreation_多執行緒存取_應保持資料一致性()
     {
         // Arrange
+        await _fixture.CleanDatabaseAsync(); // 清理資料庫以避免表已存在錯誤
+
         var tasks = new List<Task<int>>();
         var bookTitles = new List<string>();
 

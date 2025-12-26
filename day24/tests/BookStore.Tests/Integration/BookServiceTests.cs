@@ -132,7 +132,7 @@ public class BookServiceTests
     public async Task SearchBooksByAuthorAsync_部分匹配_應回傳所有匹配的書籍()
     {
         // Arrange
-        await _fixture.CleanDatabaseAsync(); // 清理資料庫以避免數據污染
+        await _fixture.CleanDatabaseAsync(); // 清理資料庫以避免資料污染
 
         var bookService = CreateBookService();
         await bookService.CreateBookAsync("書籍1", "張三", 100m);

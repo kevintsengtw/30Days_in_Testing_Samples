@@ -32,7 +32,9 @@ public class AspireAppFixture : IAsyncLifetime
         lock (_initLock)
         {
             if (_databaseInitialized)
+            {
                 return;
+            }
 
             _databaseInitialized = true;
         }

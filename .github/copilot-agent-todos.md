@@ -1,8 +1,9 @@
 <todos title="NuGet 套件版本更新專案" rule="Review steps frequently throughout the conversation and DO NOT stop between steps unless they explicitly require it.">
-- [x] check-day01: 檢查 day01 的 NuGet 套件版本並更新，執行測試驗證 🔴
+- [x] check-day01: 檢查 day01 的 NuGet 套件版本丢6更新，執行測試驗證 🔴
   _成功更新: Microsoft.NET.Test.Sdk (17.14.1 → 18.0.1), xunit.runner.visualstudio (3.1.3 → 3.1.5), 所有 81 模测都通過_
-- [-] check-day02: 檢查 day02 的 NuGet 套件版本丢6更新，執行測試驗證 🔴
-- [ ] check-day03: 檢查 day03 的 NuGet 套件版本丢6更新，執行測試驗證 🔴
+- [x] check-day02: 檢查 day02 的 NuGet 套件版本丢6更新，執行測試驗證 🔴
+  _成功更新: Microsoft.NET.Test.Sdk (17.14.1 → 18.0.1), xunit.runner.visualstudio (3.1.3 → 3.1.5), 所有 32 模测都通過_
+- [-] check-day03: 檢查 day03 的 NuGet 套件版本丢6更新，執行測試驗證 🔴
 - [ ] check-day04: 檢查 day04 的 NuGet 套件版本丢6更新，執行測試驗證 🔴
 - [ ] check-day05: 檢查 day05 的 NuGet 套件版本丢6更新，執行測試驗證 🔴
 - [ ] check-day07: 檢查 day07 的 NuGet 套件版本丢6更新，執行測試驗證 🔴

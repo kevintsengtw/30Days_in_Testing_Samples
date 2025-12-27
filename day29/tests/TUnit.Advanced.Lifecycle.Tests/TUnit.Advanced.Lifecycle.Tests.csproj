@@ -9,8 +9,10 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="TUnit" Version="0.57.24"/>
-        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.8"/>
+        <PackageReference Include="TUnit" Version="0.58.0"/>
+        <PackageReference Include="Microsoft.Testing.Extensions.CodeCoverage" Version="18.0.6" />
+        <PackageReference Include="Microsoft.Testing.Extensions.TrxReport" Version="1.8.5" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.11"/>
     </ItemGroup>
 
     <ItemGroup>

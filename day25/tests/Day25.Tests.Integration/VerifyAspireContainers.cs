@@ -69,7 +69,17 @@ public class VerifyAspireContainers : IAsyncLifetime
             try
             {
                 var connectionString = await _app!.GetConnectionStringAsync("redis");
-                await using var connection = ConnectionMultiplexer.Connect(connectionString);
+                
+                // Aspire 13.1.0+ 使用開發者自簽憑證的 Redis TLS 連線
+                // 需要在連線選項中禁用證書驗證（開發環境）
+                var options = ConfigurationOptions.Parse(connectionString);
+                options.CertificateValidation += (sender, certificate, chain, sslPolicyErrors) =>
+                {
+                    // 開發環境接受所有憑證（包括自簽憑證）
+                    return true;
+                };
+                
+                await using var connection = await ConnectionMultiplexer.ConnectAsync(options);
                 var database = connection.GetDatabase();
                 await database.PingAsync();
                 await connection.DisposeAsync();

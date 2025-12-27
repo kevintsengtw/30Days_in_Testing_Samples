@@ -249,6 +249,71 @@ var redis = builder.AddRedis("redis")
 // RedisCacheService 會自動透過 Aspire 的配置連接到 TLS 保護的 Redis
 ```
 
+#### 5. 測試環境中的 Redis TLS 配置
+
+由於開發環境使用自簽憑證，測試代碼需要特殊配置以接受自簽憑證。以下是修復後的做法：
+
+**AspireAppFixture.cs 中的 Redis 連線配置：**
+
+```csharp
+private async Task WaitForRedisReadyAsync()
+{
+    const int maxRetries = 30;
+    const int delayMs = 1000;
+
+    for (var i = 0; i < maxRetries; i++)
+    {
+        try
+        {
+            var connectionString = await GetRedisConnectionStringAsync();
+            
+            // Aspire 13.1.0+ 使用開發者自簽憑證的 Redis TLS 連線
+            // 需要在連線選項中禁用證書驗證（開發環境）
+            var options = ConfigurationOptions.Parse(connectionString);
+            options.CertificateValidation += (sender, certificate, chain, sslPolicyErrors) =>
+            {
+                // 開發環境接受所有憑證（包括自簽憑證）
+                return true;
+            };
+            
+            await using var connection = await ConnectionMultiplexer.ConnectAsync(options);
+            var database = connection.GetDatabase();
+            await database.PingAsync();
+            await connection.DisposeAsync();
+            Console.WriteLine("Redis service is ready");
+            return;
+        }
+        catch (Exception ex) when (i < maxRetries - 1)
+        {
+            Console.WriteLine($"Wait for Redis to be ready, try {i + 1}/{maxRetries}: {ex.Message}");
+            await Task.Delay(delayMs);
+        }
+    }
+
+    throw new InvalidOperationException("The Redis service failed to be ready within the expected time");
+}
+```
+
+**關鍵要點：**
+
+- 使用 `ConfigurationOptions.Parse()` 而不是直接傳遞連線字串
+- 配置 `CertificateValidation` 委託，在開發環境中返回 `true`（接受所有憑證）
+- 使用非同步的 `ConnectAsync()` 方法
+- 生產環境應使用適當的 CA 憑證驗證
+
+#### 6. 編譯警告處理
+
+Aspire 13.1.0 中的 TLS API 是評估中的功能，使用時會產生 `ASPIRECERTIFICATES001` 診斷警告。
+
+**Day25.AppHost.csproj 中的設定：**
+
+```xml
+<PropertyGroup>
+    <!-- 禁止 Aspire 評估中的 API 警告，WithHttpsDeveloperCertificate 在 Aspire 13.1.0 中是評估功能 -->
+    <NoWarn>$(NoWarn);ASPIRECERTIFICATES001</NoWarn>
+</PropertyGroup>
+```
+
 ### 官方文檔參考
 
 - **完整證書配置指南**：<https://aspire.dev/app-host/certificate-configuration/>

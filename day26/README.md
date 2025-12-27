@@ -42,15 +42,18 @@ day26/
 ## 專案內容說明
 
 ### src/Calculator.Core/
+
 - `Calculator.Core.csproj`：計算器核心程式庫設定。
 - `Calculator.cs`：計算器類別，提供加減乘除等基本運算。
 
 ### tests/Calculator.Tests.V2/
+
 - `Calculator.Tests.V2.csproj`：xUnit 2.x 測試專案設定。
 - `CalculatorTests.cs`：計算器基本功能測試，展示 2.x 寫法。
 - `GlobalUsings.cs`：全域 using 設定。
 
 ### tests/Calculator.Tests.V3/
+
 - `AssemblyInfo.cs`：組件層級設定。
 - `Calculator.Tests.V3.csproj`：xUnit 3.x 測試專案設定。
 - `CalculatorTests.cs`：計算器基本功能測試，展示 3.x 新寫法。

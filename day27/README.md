@@ -59,13 +59,17 @@
 ## 專案內容簡介
 
 ### 1. `.github/`
+
 - **copilot-instructions.md**：GitHub Copilot 指令設定檔，定義 AI 協助測試開發的規則與風格。
 
 ### 2. `docs/testing/`
+
 - 測試文件存放目錄，練習時產生的文件檔案會放在這裡。
 
 ### 3. `completed/`
+
 三個學習階段的完成檔案，讀者練習完後可作為比對：
+
 - **stage1/**：
   - **copilot-instructions-stage1.md**：階段一的 Copilot 指令設定。
   - **DiscountCalculatorTests.cs**：折扣計算器測試類別。
@@ -80,6 +84,7 @@
   - **OrderProcessor_TestScenario.md**：訂單處理測試情境說明。
 
 ### 4. `src/Day27.Core/`
+
 - **Day27.Core.csproj**：核心專案描述與套件依賴。
 - **GlobalUsings.cs**：全域 using 設定，簡化程式碼。
 - **Interfaces/**：
@@ -102,6 +107,7 @@
   - **UserService.cs**：使用者服務實作。
 
 ### 5. `tests/Day27.Core.Tests/`
+
 - **Day27.Core.Tests.csproj**：測試專案描述，已設定好三個階段練習所需的 NuGet 套件，測試框架使用 xUnit v3。
 - **GlobalUsings.cs**：測試專案全域 using 設定。
 - **Services/**：測試檔案存放目錄（空的），供讀者練習時使用。
@@ -117,6 +123,7 @@
 3. **階段三**：複雜整合測試 - 訂單處理器測試
 
 每個階段的完成檔案都放在 `completed/` 目錄中，讀者可以：
+
 - 先自己練習在 `tests/Day27.Core.Tests/Services/` 下建立測試檔案
 - 完成後與 `completed/` 中的範例比對
 - 參考各階段的 Copilot 指令設定檔來優化 AI 協助效果
@@ -124,6 +131,7 @@
 ---
 
 ## 技術重點
+
 - GitHub Copilot AI 輔助測試開發技巧
 - xUnit v3 測試框架應用
 - Mock 與 Stub 技術實戰

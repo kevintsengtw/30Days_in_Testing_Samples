@@ -47,7 +47,14 @@ public class RedisCacheService : ICacheService
         try
         {
             var serializedValue = JsonSerializer.Serialize(value);
-            await _database.StringSetAsync(key, serializedValue, expiry);
+            if (expiry.HasValue)
+            {
+                await _database.StringSetAsync(key, serializedValue, new Expiration(expiry.Value));
+            }
+            else
+            {
+                await _database.StringSetAsync(key, serializedValue);
+            }
 
             _logger.LogDebug("已設定快取，Key: {Key}", key);
         }

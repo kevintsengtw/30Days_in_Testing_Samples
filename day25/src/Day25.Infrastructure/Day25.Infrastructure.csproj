@@ -12,8 +12,8 @@
         <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="9.0.8"/>
         <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.8"/>
         <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.8"/>
-        <PackageReference Include="Npgsql" Version="9.0.3"/>
-        <PackageReference Include="StackExchange.Redis" Version="2.9.11"/>
+        <PackageReference Include="Npgsql" Version="10.0.1"/>
+        <PackageReference Include="StackExchange.Redis" Version="2.10.1"/>
     </ItemGroup>
 
     <ItemGroup>

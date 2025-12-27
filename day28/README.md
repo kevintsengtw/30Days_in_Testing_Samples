@@ -127,3 +127,57 @@ Dispose：清理資源
 ---
 
 本範例專案介紹 TUnit 測試框架的基本用法與進階特性，包含斷言語法、生命週期管理、參數化測試、時間控制、FakeTimeProvider、Email 驗證、進階條件組合等。測試專案涵蓋多種常見測試情境，並對比 TUnit 與傳統 xUnit/NUnit 的差異。
+
+---
+
+## 套件版本說明
+
+### 版本相依性鏈鎖 - 核心限制
+
+本專案所有套件版本的選擇均受 **TUnit 0.58.0** 所依賴的 **Microsoft.Testing.Platform 版本**限制。此為升級決策的根本原因。
+
+#### 版本相依性關係圖
+
+```text
+TUnit 0.58.0
+    ↓ 依賴
+Microsoft.Testing.Platform (1.8.x)
+    ↑ 被依賴
+├─ Microsoft.Testing.Extensions.CodeCoverage (需 1.8.x) → 最新可用 18.0.6
+├─ Microsoft.Testing.Extensions.TrxReport (需 1.8.x) → 最新可用 1.8.5
+└─ Microsoft.Testing.Extensions.CodeCoverage 18.1.0+ (需 2.0.x+) → 無法使用
+└─ Microsoft.Testing.Extensions.TrxReport 2.0.0+ (需 2.0.2+) → 無法使用
+```
+
+### Microsoft.Testing.Extensions.CodeCoverage 版本選擇
+
+本專案採用 **Microsoft.Testing.Extensions.CodeCoverage 18.0.6**，而非最新的 18.1.0：
+
+| 特性                           | 18.0.6                 | 18.1.0                                         |
+| ------------------------------ | ---------------------- | ---------------------------------------------- |
+| **所需 Testing.Platform 版本** | 1.8.x                  | 2.0.x 或更高                                   |
+| **與 TUnit 0.58.0 相容**       | 完全相容               | 不相容                                         |
+| **測試結果**                   | 全部 53 測試通過       | TypeLoadException：無法載入 IDataConsumer 型別 |
+| **穩定性**                     | 針對 .NET 9.0 環境優化 | 需要升級 TUnit 才可使用                        |
+
+### Microsoft.Testing.Extensions.TrxReport 版本選擇
+
+本專案採用 **Microsoft.Testing.Extensions.TrxReport 1.8.5**，而非更新的 1.9.0 或 2.0.0+：
+
+| 特性                      | 1.8.5            | 1.9.0+                       | 2.0.0+             |
+| ------------------------- | ---------------- | ---------------------------- | ------------------ |
+| **所需 Testing.Platform** | 1.8.x            | 1.8.x（但引入 API 變更）     | 2.0.2+             |
+| **與 TUnit 0.58.0 相容**  | 完全相容         | 相容但測試行為改變           | 不相容             |
+| **測試結果**              | 全部 53 測試通過 | 1 個測試失敗（user 為 null） | NuGet 版本衝突拒絕 |
+
+**核心限制分析：**
+
+- **TUnit 0.58.0** 依賴的 Microsoft.Testing.Platform 版本較舊（1.8.x）
+- **CodeCoverage 18.1.0+** 要求 Microsoft.Testing.Platform 2.0.x 或更高，造成版本衝突
+- **TrxReport 2.0.0+** 要求 Microsoft.Testing.Platform >= 2.0.2，NuGet 明確拒絕版本降級，導致無法使用
+- **解決方案：** 保持在 1.8.x 版本直到 TUnit 升級到支援新版本 Microsoft.Testing.Platform 為止
+
+**版本差異詳解：**
+
+- **1.8.5 vs 1.9.0：** 1.9.0 引入新的 API 或行為變更，導致生命週期管理上的差異
+- **1.8.5 vs 2.0.0+：** 版本跨度大，2.0.0+ 明確聲明需要 Microsoft.Testing.Platform 2.0.2+，產生不可調和的相依性衝突
